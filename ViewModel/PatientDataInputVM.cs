@@ -32,17 +32,49 @@ namespace Group.ViewModel
         [ObservableProperty]
         ObservableCollection<Patient> patients;
 
+        [ObservableProperty]
+        public Patient selectedPatient;
+
         //public Patient Ptnt { get;private set; }
 
         public PatientDataInputVM()
         {
             
             patients = new ObservableCollection<Patient>();
-            LoadData();
+            
         }
 
-        [ObservableProperty]
-        public Patient selectedPatient = null;
+      
+
+        [RelayCommand]
+        public void Update()
+        {
+            if (selectedPatient != null)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Student to update");
+            }
+        }
+
+        [RelayCommand]
+        public void read()
+        {
+            if(selectedPatient != null)
+            {
+                firstname = selectedPatient.FirstName;
+                lastname=selectedPatient.LastName;
+                age = selectedPatient.Age;
+                ward = selectedPatient.Ward;
+                medicalpriorities = selectedPatient.MedicalPriorities;
+            }
+            else
+            {
+                MessageBox.Show("Please select student");
+            }
+        }
 
         [RelayCommand]
         public void Add()
@@ -59,8 +91,16 @@ namespace Group.ViewModel
 
             using (var db = new UserDataContext())
             {
-                db.Patients.Add(ptnt);
-                db.SaveChanges();
+                if (ptnt != null)
+                {
+                    db.Patients.Add(ptnt);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Patient is null");
+
+                }
             }
             LoadData();
         }

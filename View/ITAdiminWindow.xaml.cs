@@ -1,4 +1,5 @@
 ﻿using Group.Model;
+using Group.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace Group.View
 
         private void DoctorsData_Click(object sender, RoutedEventArgs e)
         {
-            ITframe.Content = new Doctor_sDataInputUC();
+            ITframe.Content = new AddDoctorDetailsother();
         }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)

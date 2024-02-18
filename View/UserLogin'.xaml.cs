@@ -49,7 +49,7 @@ namespace Group.View
 
             using(UserDataContext Dcontext = new UserDataContext())
             {
-                bool CorrectDoctorfound = Dcontext.Users.Any(user=> user.UserName == Name && user.Password == Password && user.Role== "D");
+                bool CorrectDoctorfound = Dcontext.Doctors.Any(doctor=> doctor.UserName == Name && doctor.Password == Password && doctor.Role== "D");
                 bool CorrectITAdminfound = Dcontext.Users.Any(user => user.UserName == Name && user.Password == Password && user.Role == "I");
                 if(CorrectITAdminfound || CorrectDoctorfound)
                 {

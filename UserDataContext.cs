@@ -10,13 +10,17 @@ namespace Group
 {
     public class UserDataContext:DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source = kathaNama.db");
+        }
         public DbSet<User> Users { get; set; }
         public DbSet<Patient> Patients { get; set; }
-
         public DbSet<Doctor> Doctors { get; set; }
-        private readonly string _path = @"E:\3rd Semester\GUI\Group\group.db";
+
+        /*private readonly string _path = @"E:\3rd Semester\GUI\Group\group.db";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlite($"Data Source={_path}");
+        => optionsBuilder.UseSqlite($"Data Source={_path}");*/
     }
 }

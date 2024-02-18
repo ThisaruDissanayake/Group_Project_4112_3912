@@ -33,47 +33,47 @@ namespace Group.View
             ItemList.Items.Clear();
         }
 
-        public void Add()
-        {
-            using (UserDataContext context = new UserDataContext())
-            {
-                if (AgeTextBox.Text == null)
-                {
-                    MessageBox.Show("Enter the Age of patient", "Error");
-                }
-                var firstName = FirstNameTextBox.Text;
-                var lastName = LastNameTextBox.Text;
+        //public void Add()
+        //{
+        //    using (UserDataContext context = new UserDataContext())
+        //    {
+        //        if (AgeTextBox.Text == null)
+        //        {
+        //            MessageBox.Show("Enter the Age of patient", "Error");
+        //        }
+        //        var firstName = FirstNameTextBox.Text;
+        //        var lastName = LastNameTextBox.Text;
 
-                int age = int.Parse(AgeTextBox.Text);
-                var ward = WardTextBox.Text;
-                var medicalPriorites = SpecialMedicalPrioritiesTextBox.Text;
-                //var telephonenb = TeleponeNoTextBox.Text;
+        //        int age = int.Parse(AgeTextBox.Text);
+        //        var ward = WardTextBox.Text;
+        //        var medicalPriorites = SpecialMedicalPrioritiesTextBox.Text;
+        //        //var telephonenb = TeleponeNoTextBox.Text;
 
 
-                if (firstName != null && age != null)
-                {
-                    context.Patients.Add(new Patient()
-                    {
-                        FirstName = firstName,
-                        LastName = lastName,
-                        Age = age,
-                        Ward = ward,
-                        // PhoneNo = telephonenb,
-                        MedicalPriorities = medicalPriorites
+        //        if (firstName != null && age != null)
+        //        {
+        //            context.Patients.Add(new Patient()
+        //            {
+        //                FirstName = firstName,
+        //                LastName = lastName,
+        //                Age = age,
+        //                Ward = ward,
+        //                // PhoneNo = telephonenb,
+        //                MedicalPriorities = medicalPriorites
 
-                    });
-                    context.SaveChanges();
-                }
+        //            });
+        //            context.SaveChanges();
+        //        }
 
-                DBPatients = context.Patients.ToList();
-                ItemList.ItemsSource = DBPatients;
-            }
-        }
+        //        DBPatients = context.Patients.ToList();
+        //        ItemList.ItemsSource = DBPatients;
+        //    }
+        //}
 
-        private void AddBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Add();
-        }
+        //private void AddBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Add();
+        //}
 
         public void Delete()
         {
